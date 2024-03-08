@@ -10,6 +10,7 @@ RUN git clone https://github.com/jlanej/TT-Mars.git
 WORKDIR /app/TT-Mars
 
 #Create environment and activate: conda create -n ttmars and conda activate ttmars. 
-RUN conda init
+
 RUN conda create -n ttmars
+RUN conda init
 RUN conda activate ttmars
