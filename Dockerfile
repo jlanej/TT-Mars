@@ -33,6 +33,13 @@ SHELL ["/bin/bash", "--login", "-c"]
 RUN pip install -U --no-cache-dir pysam
 RUN pip install -U --no-cache-dir numpy
 RUN pip install -U --no-cache-dir mappy
+RUN pip install -U --no-cache-dir biopython
+RUN pip install -U --no-cache-dir pybedtools
+
+ENV PYTHONPATH "${PYTHONPATH}:/app/cue"
+RUN python ttmars.py
+
+CMD ["/bin/bash"]
 
 
 # RUN conda create -n ttmars
