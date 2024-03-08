@@ -21,6 +21,9 @@ RUN conda activate ttmars
 # skipping  Run download_asm.sh to download assembly files of 10 samples from HGSVC.
 # Install packages: conda install -c bioconda pysam, conda install -c anaconda numpy, conda install -c bioconda mappy, conda install -c conda-forge biopython, conda install -c bioconda pybedtools.
 
+# need to add channels 
+RUN conda config --add channels r
+RUN conda config --add channels bioconda
 RUN conda install -c bioconda pysam 
 RUN conda install -c anaconda numpy 
 RUN conda install -c bioconda mappy 
