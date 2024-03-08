@@ -16,3 +16,13 @@ SHELL ["/bin/bash", "--login", "-c"]
 RUN conda create -n ttmars
 RUN conda init bash
 RUN conda activate ttmars
+
+# skipping Run dowaload_files.sh to download required files to ./ttmars_files.
+# skipping  Run download_asm.sh to download assembly files of 10 samples from HGSVC.
+# Install packages: conda install -c bioconda pysam, conda install -c anaconda numpy, conda install -c bioconda mappy, conda install -c conda-forge biopython, conda install -c bioconda pybedtools.
+
+RUN conda install -c bioconda pysam 
+RUN conda install -c anaconda numpy 
+RUN conda install -c bioconda mappy 
+RUN conda install -c conda-forge biopython 
+RUN conda install -c bioconda pybedtools.
