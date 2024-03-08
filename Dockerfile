@@ -12,5 +12,5 @@ WORKDIR /app/TT-Mars
 #Create environment and activate: conda create -n ttmars and conda activate ttmars. 
 
 RUN conda create -n ttmars
-RUN conda init
+RUN conda init ttmars
 RUN conda activate ttmars
