@@ -24,6 +24,10 @@ RUN conda activate ttmars
 # need to add channels 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
+RUN conda config --add channels defaults
+RUN conda config --add channels conda-forge
+RUN conda config --add channels bioconda
+
 # RUN conda install -c bioconda pysam 
 RUN pip install -U --no-cache-dir pysam==0.16.0.1 
 RUN pip install -U --no-cache-dir numpy==1.18.5 
