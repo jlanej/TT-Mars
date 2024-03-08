@@ -4,10 +4,10 @@ FROM continuumio/miniconda3
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends bcftools=1.7-2 
-RUN apt-get install -y --no-install-recommends build-essential=12.4ubuntu1 
-RUN apt-get install -y --no-install-recommends libbz2-dev=1.0.6-8.1ubuntu0.2 
-RUN apt-get install -y --no-install-recommends zlib1g-dev=1:1.2.11.dfsg-0ubuntu2
+RUN apt-get install -y --no-install-recommends bcftools
+RUN apt-get install -y --no-install-recommends build-essential
+RUN apt-get install -y --no-install-recommends libbz2-dev
+RUN apt-get install -y --no-install-recommends zlib1g-dev
 RUN apt-get install -y --no-install-recommends libgl1-mesa-glx 
 RUN apt-get install -y --no-install-recommends libglib2.0-0 
 RUN apt-get install -y --no-install-recommends libsm6 
