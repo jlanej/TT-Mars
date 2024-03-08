@@ -36,7 +36,7 @@ RUN pip install -U --no-cache-dir mappy
 RUN pip install -U --no-cache-dir biopython
 RUN pip install -U --no-cache-dir pybedtools
 
-ENV PYTHONPATH "${PYTHONPATH}:/app/cue"
+ENV PYTHONPATH "${PYTHONPATH}:/app/TT-Mars"
 # RUN python ttmars.py
 
 CMD ["/bin/bash"]
