@@ -8,19 +8,6 @@ RUN apt-get update && apt-get -y upgrade && \
 		libncurses5-dev zlib1g-dev libbz2-dev liblzma-dev libcurl3-dev git r-base r-base-dev && \
 	apt-get clean && apt-get purge && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# RUN wget https://github.com/samtools/htslib/releases/download/1.19.1/htslib-1.19.1.tar.bz2 && \
-# 	tar jxf htslib-1.19.1.tar.bz2 && \
-# 	rm htslib-1.19.1.tar.bz2 && \
-# 	cd htslib-1.19.1 && \
-# 	./configure --prefix $(pwd) && \
-# 	make
-# RUN wget https://github.com/samtools/samtools/releases/download/1.16.1/samtools-1.16.1.tar.bz2 && \
-# 	tar jxf samtools-1.16.1.tar.bz2 && \
-# 	rm samtools-1.16.1.tar.bz2 && \
-# 	cd samtools-1.16.1 && \
-# 	./configure --prefix $(pwd) && \
-# 	make
  
 WORKDIR /app
 RUN git clone https://github.com/mchaisso/mcutils.git
@@ -46,9 +33,6 @@ RUN pip install -U --no-cache-dir \
     wheel
     
 SHELL ["/bin/bash", "--login", "-c"]
-# RUN conda activate env
-# RUN conda create --name myenv
-# RUN conda activate myenv
 
 RUN conda config --add channels defaults
 RUN conda config --add channels anaconda
@@ -57,10 +41,6 @@ RUN conda config --add channels conda-forge
 # RUN conda config --set channel_priority strict
 RUN conda install conda-forge::libdeflate
 RUN conda install -c bioconda lra
-
-# RUN conda install -c bioconda htslib
-# RUN conda install -c anaconda zlib
-# RUN conda install -c bioconda lra
 
 RUN pip install -U --no-cache-dir pysam
 RUN pip install -U --no-cache-dir numpy
