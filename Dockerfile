@@ -28,10 +28,10 @@ RUN apt-get update && apt-get -y upgrade && \
 # cd htslib-1.9
 # make
 
-RUN wget https://github.com/samtools/htslib/releases/download/1.16.1/htslib-1.16.1.tar.bz2 && \
-	tar jxf htslib-1.16.1.tar.bz2 && \
-	rm htslib-1.16.1.tar.bz2 && \
-	cd htslib-1.16.1 && \
+RUN wget https://github.com/samtools/htslib/releases/download/1.19.1/htslib-1.19.1.tar.bz2 && \
+	tar jxf htslib-1.19.1.tar.bz2 && \
+	rm htslib-1.19.1.tar.bz2 && \
+	cd htslib-1.19.1 && \
 	./configure --prefix $(pwd) && \
 	make
 RUN wget https://github.com/samtools/samtools/releases/download/1.16.1/samtools-1.16.1.tar.bz2 && \
