@@ -30,7 +30,13 @@ RUN make && make install
 WORKDIR /app
 RUN git clone --recursive https://github.com/ChaissonLab/lra.git -b master
 WORKDIR /app/lra
-RUN make
+# RUN make
+
+RUN conda config --add channels defaults
+RUN conda config --add channels bioconda
+RUN conda config --add channels conda-forge
+RUN conda config --set channel_priority strict
+RUN conda install -c bioconda lra
 
 WORKDIR /app
 # Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
