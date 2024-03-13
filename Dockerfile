@@ -4,7 +4,7 @@ FROM continuumio/miniconda3
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends bcftools
+# RUN apt-get install -y --no-install-recommends bcftools
 RUN apt-get install -y --no-install-recommends build-essential
 RUN apt-get install -y --no-install-recommends libbz2-dev
 RUN apt-get install -y --no-install-recommends zlib1g-dev
@@ -17,7 +17,13 @@ RUN apt-get install -y --no-install-recommends zlib1g-dev
 RUN apt-get install -y --no-install-recommends git
 # RUN apt-get install -y --no-install-recommends wget
 
-
+RUN wget https://github.com/samtools/samtools/releases/download/1.16.1/samtools-1.16.1.tar.bz2 && \
+	tar jxf samtools-1.16.1.tar.bz2 && \
+	rm samtools-1.16.1.tar.bz2 && \
+	cd samtools-1.16.1 && \
+	./configure --prefix $(pwd) && \
+	make
+ 
 WORKDIR /app
 RUN git clone https://github.com/mchaisso/mcutils.git
 WORKDIR /app/mcutils/src/
