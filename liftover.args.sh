@@ -10,7 +10,9 @@ h2=$5
 #1. Align assembly to reference
 
 #use lra (https://github.com/ChaissonLab/LRA) to align asm to ref
+echo "indexing reference"
 lra index -CONTIG $reference
+echo "aligning assembly to reference"
 lra align -CONTIG $reference $h1 -t 16 -p s | samtools sort -o assem1_sort.bam
 lra align -CONTIG $reference $h2 -t 16 -p s | samtools sort -o assem2_sort.bam
 
