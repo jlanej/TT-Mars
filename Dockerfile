@@ -9,6 +9,7 @@ RUN apt-get update && apt-get -y upgrade && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
+WORKDIR /usr/src
 # https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2
 RUN wget https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2 && \
 	tar jxf samtools-1.19.2.tar.bz2 && \
@@ -16,6 +17,9 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.19.2/samtools-
 	cd samtools-1.19.2 && \
 	./configure --prefix $(pwd) && \
 	make
+
+ENV PATH=${PATH}:/usr/src/samtools-1.19.2
+
 # build mcutils
 WORKDIR /app
 RUN git clone https://github.com/mchaisso/mcutils.git
