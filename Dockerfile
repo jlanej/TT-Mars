@@ -41,6 +41,7 @@ RUN conda config --add channels conda-forge
 # RUN conda config --set channel_priority strict
 RUN conda install conda-forge::libdeflate
 RUN conda install -c bioconda lra
+RUN conda install -c bioconda pysam
 
 RUN pip install -U --no-cache-dir pysam
 RUN pip install -U --no-cache-dir numpy
