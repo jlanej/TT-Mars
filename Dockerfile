@@ -28,7 +28,9 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.16.1/samtools-
 	cd samtools-1.16.1 && \
 	./configure --prefix $(pwd) && \
 	make
- 
+RUN conda config --add channels bioconda
+RUN conda install -c bioconda htslib 
+
 WORKDIR /app
 RUN git clone https://github.com/mchaisso/mcutils.git
 WORKDIR /app/mcutils/src/
