@@ -35,6 +35,7 @@ RUN pip install -U --no-cache-dir mappy
 RUN pip install -U --no-cache-dir biopython
 RUN pip install -U --no-cache-dir pybedtools
 
+ADD https://worldtimeapi.org/api/ip time.tmp
 
 WORKDIR /app
 # Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
