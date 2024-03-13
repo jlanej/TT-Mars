@@ -47,6 +47,9 @@ RUN pip install -U --no-cache-dir \
     
 SHELL ["/bin/bash", "--login", "-c"]
 # RUN conda activate env
+RUN conda create --name myenv
+RUN conda activate myenv
+
 RUN conda config --add channels defaults
 RUN conda config --add channels anaconda
 RUN conda config --add channels bioconda
