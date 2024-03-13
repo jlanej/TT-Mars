@@ -15,7 +15,7 @@ RUN apt-get install -y --no-install-recommends zlib1g-dev
 # RUN apt-get install -y --no-install-recommends libxext6 
 # RUN apt-get install -y --no-install-recommends tabix 
 RUN apt-get install -y --no-install-recommends git
-# RUN apt-get install -y --no-install-recommends wget
+RUN apt-get install -y --no-install-recommends wget
 
 RUN wget https://github.com/samtools/samtools/releases/download/1.16.1/samtools-1.16.1.tar.bz2 && \
 	tar jxf samtools-1.16.1.tar.bz2 && \
