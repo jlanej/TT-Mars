@@ -38,7 +38,6 @@ RUN pip install -U --no-cache-dir pybedtools
 ADD https://worldtimeapi.org/api/ip time.tmp
 
 WORKDIR /app
-# Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
 RUN git clone https://github.com/jlanej/TT-Mars.git
 WORKDIR /app/TT-Mars
 
