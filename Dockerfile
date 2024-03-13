@@ -8,6 +8,14 @@ RUN apt-get update && apt-get -y upgrade && \
 	apt-get clean && apt-get purge && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+
+# https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2
+RUN wget https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2 && \
+	tar jxf samtools-1.19.2.tar.bz2 && \
+	rm samtools-1.19.2.tar.bz2 && \
+	cd samtools-1.19.2 && \
+	./configure --prefix $(pwd) && \
+	make
 # build mcutils
 WORKDIR /app
 RUN git clone https://github.com/mchaisso/mcutils.git
