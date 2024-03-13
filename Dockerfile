@@ -8,14 +8,14 @@ RUN apt-get install -y --no-install-recommends bcftools
 RUN apt-get install -y --no-install-recommends build-essential
 RUN apt-get install -y --no-install-recommends libbz2-dev
 RUN apt-get install -y --no-install-recommends zlib1g-dev
-RUN apt-get install -y --no-install-recommends libgl1-mesa-glx 
-RUN apt-get install -y --no-install-recommends libglib2.0-0 
-RUN apt-get install -y --no-install-recommends libsm6 
-RUN apt-get install -y --no-install-recommends libxrender1 
-RUN apt-get install -y --no-install-recommends libxext6 
-RUN apt-get install -y --no-install-recommends tabix 
+# RUN apt-get install -y --no-install-recommends libgl1-mesa-glx 
+# RUN apt-get install -y --no-install-recommends libglib2.0-0 
+# RUN apt-get install -y --no-install-recommends libsm6 
+# RUN apt-get install -y --no-install-recommends libxrender1 
+# RUN apt-get install -y --no-install-recommends libxext6 
+# RUN apt-get install -y --no-install-recommends tabix 
 RUN apt-get install -y --no-install-recommends git
-RUN apt-get install -y --no-install-recommends wget
+# RUN apt-get install -y --no-install-recommends wget
 
 # Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
 WORKDIR /app
