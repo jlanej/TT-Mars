@@ -42,7 +42,7 @@ WORKDIR /app/TT-Mars
 RUN pip install --upgrade pip
 
 RUN pip install -U --no-cache-dir \
-    setuptools==58.0.0 \
+    setuptools \
     wheel
     
 SHELL ["/bin/bash", "--login", "-c"]
