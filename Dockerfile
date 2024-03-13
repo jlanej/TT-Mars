@@ -36,6 +36,7 @@ RUN conda config --add channels defaults
 RUN conda config --add channels bioconda
 RUN conda config --add channels conda-forge
 RUN conda config --set channel_priority strict
+RUN conda install -c bioconda htslib
 RUN conda install -c bioconda lra
 
 WORKDIR /app
