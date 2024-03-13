@@ -9,18 +9,18 @@ RUN apt-get update && apt-get -y upgrade && \
 	apt-get clean && apt-get purge && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN wget https://github.com/samtools/htslib/releases/download/1.19.1/htslib-1.19.1.tar.bz2 && \
-	tar jxf htslib-1.19.1.tar.bz2 && \
-	rm htslib-1.19.1.tar.bz2 && \
-	cd htslib-1.19.1 && \
-	./configure --prefix $(pwd) && \
-	make
-RUN wget https://github.com/samtools/samtools/releases/download/1.16.1/samtools-1.16.1.tar.bz2 && \
-	tar jxf samtools-1.16.1.tar.bz2 && \
-	rm samtools-1.16.1.tar.bz2 && \
-	cd samtools-1.16.1 && \
-	./configure --prefix $(pwd) && \
-	make
+# RUN wget https://github.com/samtools/htslib/releases/download/1.19.1/htslib-1.19.1.tar.bz2 && \
+# 	tar jxf htslib-1.19.1.tar.bz2 && \
+# 	rm htslib-1.19.1.tar.bz2 && \
+# 	cd htslib-1.19.1 && \
+# 	./configure --prefix $(pwd) && \
+# 	make
+# RUN wget https://github.com/samtools/samtools/releases/download/1.16.1/samtools-1.16.1.tar.bz2 && \
+# 	tar jxf samtools-1.16.1.tar.bz2 && \
+# 	rm samtools-1.16.1.tar.bz2 && \
+# 	cd samtools-1.16.1 && \
+# 	./configure --prefix $(pwd) && \
+# 	make
  
 WORKDIR /app
 RUN git clone https://github.com/mchaisso/mcutils.git
