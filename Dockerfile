@@ -10,6 +10,7 @@ RUN apt-get update && apt-get -y upgrade && \
 
 
 WORKDIR /usr/src
+# needed for liftover.sh
 RUN wget https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2 && \
 	tar jxf samtools-1.19.2.tar.bz2 && \
 	rm samtools-1.19.2.tar.bz2 && \
@@ -19,7 +20,8 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.19.2/samtools-
 
 ENV PATH=${PATH}:/usr/src/samtools-1.19.2
 
-# build mcutils
+# build mcutils 
+# needed for liftover.sh
 WORKDIR /app
 RUN git clone https://github.com/mchaisso/mcutils.git
 WORKDIR /app/mcutils/src/
@@ -28,6 +30,7 @@ RUN make && make install
 SHELL ["/bin/bash", "--login", "-c"]
 
 # install lra
+# needed for liftover.sh
 RUN conda config --add channels defaults
 RUN conda config --add channels anaconda
 RUN conda config --add channels bioconda
@@ -35,6 +38,8 @@ RUN conda config --add channels conda-forge
 RUN conda install conda-forge::libdeflate
 RUN conda install -c bioconda lra
 
+
+# needed for ttmars.py
 RUN pip install --upgrade pip
 RUN pip install -U --no-cache-dir \
     setuptools \
