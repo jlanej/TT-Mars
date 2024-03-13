@@ -32,14 +32,6 @@ RUN git clone --recursive https://github.com/ChaissonLab/lra.git -b master
 WORKDIR /app/lra
 # RUN make
 
-RUN conda config --add channels defaults
-RUN conda config --add channels anaconda
-RUN conda config --add channels bioconda
-RUN conda config --add channels conda-forge
-RUN conda config --set channel_priority strict
-RUN conda install -c bioconda htslib
-RUN conda install -c anaconda zlib
-RUN conda install -c bioconda lra
 
 WORKDIR /app
 # Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
@@ -54,6 +46,16 @@ RUN pip install -U --no-cache-dir \
     wheel
     
 SHELL ["/bin/bash", "--login", "-c"]
+RUN conda activate env
+RUN conda config --add channels defaults
+RUN conda config --add channels anaconda
+RUN conda config --add channels bioconda
+RUN conda config --add channels conda-forge
+RUN conda config --set channel_priority strict
+RUN conda install -c bioconda htslib
+RUN conda install -c anaconda zlib
+RUN conda install -c bioconda lra
+
 RUN pip install -U --no-cache-dir pysam
 RUN pip install -U --no-cache-dir numpy
 RUN pip install -U --no-cache-dir mappy
