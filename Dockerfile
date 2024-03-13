@@ -17,8 +17,14 @@ RUN apt-get install -y --no-install-recommends zlib1g-dev
 RUN apt-get install -y --no-install-recommends git
 # RUN apt-get install -y --no-install-recommends wget
 
-# Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
+
 WORKDIR /app
+RUN git clone https://github.com/mchaisso/mcutils.git
+WORKDIR /app/mcutils/src/
+RUN make && make install
+
+WORKDIR /app
+# Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
 RUN git clone https://github.com/jlanej/TT-Mars.git
 WORKDIR /app/TT-Mars
 
