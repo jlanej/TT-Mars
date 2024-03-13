@@ -1,6 +1,5 @@
 FROM continuumio/miniconda3
 
-
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get -y upgrade && \
@@ -22,20 +21,10 @@ RUN conda config --add channels defaults
 RUN conda config --add channels anaconda
 RUN conda config --add channels bioconda
 RUN conda config --add channels conda-forge
-# RUN conda config --set channel_priority strict
 RUN conda install conda-forge::libdeflate
 RUN conda install -c bioconda lra
 
-
-
-WORKDIR /app
-# Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
-RUN git clone https://github.com/jlanej/TT-Mars.git
-WORKDIR /app/TT-Mars
-
-#Create environment and activate: conda create -n ttmars and conda activate ttmars. 
 RUN pip install --upgrade pip
-
 RUN pip install -U --no-cache-dir \
     setuptools \
     wheel
@@ -45,6 +34,12 @@ RUN pip install -U --no-cache-dir numpy
 RUN pip install -U --no-cache-dir mappy
 RUN pip install -U --no-cache-dir biopython
 RUN pip install -U --no-cache-dir pybedtools
+
+
+WORKDIR /app
+# Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
+RUN git clone https://github.com/jlanej/TT-Mars.git
+WORKDIR /app/TT-Mars
 
 ENV PYTHONPATH "${PYTHONPATH}:/app/TT-Mars"
 # RUN python ttmars.py
