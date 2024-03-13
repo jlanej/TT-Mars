@@ -46,7 +46,7 @@ RUN pip install -U --no-cache-dir \
     wheel
     
 SHELL ["/bin/bash", "--login", "-c"]
-RUN conda activate env
+# RUN conda activate env
 RUN conda config --add channels defaults
 RUN conda config --add channels anaconda
 RUN conda config --add channels bioconda
