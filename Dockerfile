@@ -24,6 +24,11 @@ WORKDIR /app/mcutils/src/
 RUN make && make install
 
 WORKDIR /app
+RUN git clone --recursive https://github.com/ChaissonLab/lra.git -b master
+WORKDIR /app/lra
+RUN make
+
+WORKDIR /app
 # Clone TT-Mars from github and cd TT-Mars. Python >= 3.8 is preferred.
 RUN git clone https://github.com/jlanej/TT-Mars.git
 WORKDIR /app/TT-Mars
