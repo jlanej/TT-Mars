@@ -21,7 +21,19 @@ RUN apt-get update && apt-get -y upgrade && \
 		libncurses5-dev zlib1g-dev libbz2-dev liblzma-dev libcurl3-dev git r-base r-base-dev && \
 	apt-get clean && apt-get purge && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
- 
+
+# cd /usr/bin
+# wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2
+# tar -vxjf htslib-1.9.tar.bz2
+# cd htslib-1.9
+# make
+
+RUN wget https://github.com/samtools/htslib/releases/download/1.16.1/htslib-1.16.1.tar.bz2 && \
+	tar jxf htslib-1.16.1.tar.bz2 && \
+	rm htslib-1.16.1.tar.bz2 && \
+	cd htslib-1.16.1 && \
+	./configure --prefix $(pwd) && \
+	make
 RUN wget https://github.com/samtools/samtools/releases/download/1.16.1/samtools-1.16.1.tar.bz2 && \
 	tar jxf samtools-1.16.1.tar.bz2 && \
 	rm samtools-1.16.1.tar.bz2 && \
