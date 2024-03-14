@@ -6,6 +6,15 @@ if_hg38=$3
 h1=$4
 h2=$5
 scriptDir=$6
+echo "reference: $reference"
+echo "output_dir: $output_dir"
+echo "if_hg38: $if_hg38"
+echo "h1: $h1"
+echo "h2: $h2"
+echo "scriptDir: $scriptDir"
+
+
+#######################################################
 
 
 #1. Align assembly to reference
