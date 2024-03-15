@@ -20,8 +20,13 @@ echo "scriptDir: $scriptDir"
 #1. Align assembly to reference
 
 #use lra (https://github.com/ChaissonLab/LRA) to align asm to ref
-echo "indexing reference"
-lra index -CONTIG $reference
+
+# if the index files hg38.no_alt.fa.mms and hg38.no_alt.fa.gli exists, then skip this step
+
+if [ ! -f $reference.mms || ! -f $reference.gli ]; then
+    echo "indexing reference"
+    lra index -CONTIG $reference
+fi
 
 
 if [ ! -f assem1_sort.bam.bai ]; then
