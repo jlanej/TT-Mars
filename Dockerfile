@@ -27,6 +27,8 @@ RUN git clone https://github.com/mchaisso/mcutils.git
 WORKDIR /app/mcutils/src/
 RUN make && make install
 
+ENV PATH=${PATH}:/app/mcutils/src/
+
 SHELL ["/bin/bash", "--login", "-c"]
 
 # install lra
