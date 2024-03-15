@@ -43,17 +43,20 @@ fi
 #2. Trim overlapping contigs
 
 #trim overlapping contigs
-python "$scriptDir"/trim_overlapping_contigs.py assem1_sort.bam $output_dir $if_hg38
-python "$scriptDir"/trim_overlapping_contigs.py assem2_sort.bam $output_dir $if_hg38
 
-#sort trimmed bam file
-samtools sort $output_dir/assem1_sort_nool.bam -o $output_dir/assem1_nool_sort.bam
-samtools sort $output_dir/assem2_sort_nool.bam -o $output_dir/assem2_nool_sort.bam
+# if assem1_nool_sort.bam.bai does not exist, then run the following command
 
-#index sorted trimmed file
-samtools index $output_dir/assem1_nool_sort.bam
-samtools index $output_dir/assem2_nool_sort.bam
+if [ ! -f assem1_nool_sort.bam.bai ]; then
+    python "$scriptDir"/trim_overlapping_contigs.py assem1_sort.bam $output_dir $if_hg38
+    samtools sort $output_dir/assem1_sort_nool.bam -o $output_dir/assem1_nool_sort.bam
+    samtools index $output_dir/assem1_nool_sort.bam
+fi
 
+if [ ! -f assem2_nool_sort.bam.bai ]; then
+    python "$scriptDir"/trim_overlapping_contigs.py assem2_sort.bam $output_dir $if_hg38
+    samtools sort $output_dir/assem2_sort_nool.bam -o $output_dir/assem2_nool_sort.bam
+    samtools index $output_dir/assem2_nool_sort.bam
+fi
 #######################################################
 #######################################################
 #3. Liftover
