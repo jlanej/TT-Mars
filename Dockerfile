@@ -29,6 +29,12 @@ RUN make && make install
 
 ENV PATH=${PATH}:/app/mcutils/src/
 
+WORKDIR /app/bedtools/
+wget https://github.com/arq5x/bedtools2/releases/download/v2.31.0/bedtools.static
+RUN mv bedtools.static bedtools
+RUN chmod a+x bedtools
+ENV PATH=${PATH}:/app/bedtools/
+
 SHELL ["/bin/bash", "--login", "-c"]
 
 # install lra
